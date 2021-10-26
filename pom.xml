@@ -53,15 +53,12 @@
                         <phase>package</phase>
                         <goals>
                             <goal>build</goal>
-                            <goal>push</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
                     <repository>suchen2008/${project.artifactId}</repository>
                     <tag>${project.version}</tag>
-                    <username>${env.DOCKER_HUB_USERNAME}</username>
-                    <password>${env.DOCKER_HUB_TOKEN}</password>
                     <buildArgs>
                         <docker_artifact_file>target/${project.build.finalName}.jar</docker_artifact_file>
                     </buildArgs>
