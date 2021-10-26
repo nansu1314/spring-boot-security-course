@@ -8,7 +8,7 @@ ARG docker_artifact_file
 
 COPY ${docker_artifact_file} /springboot-security.jar
 
-RUN bash -c 'touch /security.jar'
+RUN bash -c 'touch /springboot-security.jar'
 
 EXPOSE 8082
-ENTRYPOINT ["java", "-jar","/security.jar"]
+ENTRYPOINT ["java", "-jar","/springboot-security.jar"]
