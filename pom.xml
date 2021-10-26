@@ -50,8 +50,10 @@
                 <executions>
                     <execution>
                         <id>docker-build</id>
+                        <phase>package</phase>
                         <goals>
                             <goal>build</goal>
+                            <goal>push</goal>
                         </goals>
                     </execution>
                 </executions>
