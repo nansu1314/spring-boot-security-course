@@ -60,8 +60,8 @@
                 <configuration>
                     <repository>suchen2008/${project.artifactId}</repository>
                     <tag>${project.version}</tag>
-                    <username>suchen2008</username>
-                    <password>suchen1516250088</password>
+                    <username>${env.DOCKER_HUB_USERNAME}</username>
+                    <password>${env.DOCKER_HUB_TOKEN}</password>
                     <buildArgs>
                         <docker_artifact_file>target/${project.build.finalName}.jar</docker_artifact_file>
                     </buildArgs>
