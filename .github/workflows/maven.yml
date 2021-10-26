@@ -23,7 +23,10 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Build with Maven
-      env:
-        DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-        DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
       run: mvn -B package --file pom.xml
+    - name: Docker Publish
+      uses: manusa/actions-publish-docker@v1.1.2
+      with:
+        name: suchen2008/demo
+        username: ${{ secrets.DOCKER_HUB_USER }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
