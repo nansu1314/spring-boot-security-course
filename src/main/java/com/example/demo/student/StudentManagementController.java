@@ -1,5 +1,6 @@
 package com.example.demo.student;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("management/api/v1/students")
+@ConditionalOnProperty(value = "management.api.student",havingValue = "true")
 public class StudentManagementController {
 
     private static final List<Student> STUDENTS = Arrays.asList(
