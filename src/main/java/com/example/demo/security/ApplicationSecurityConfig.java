@@ -38,10 +38,9 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
-                .antMatchers("/api/**").hasRole(STUDENT.name())
-                .anyRequest()
-                .authenticated()
+                    .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
+                    .antMatchers("/api/**").hasRole(STUDENT.name())
+                    .anyRequest().authenticated()
                 .and()
                 .formLogin()
                     .loginPage("/login")
@@ -67,6 +66,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(daoAuthenticationProvider());
+        //两者等同
+        auth.userDetailsService(applicationUserService).passwordEncoder(passwordEncoder);
     }
 
     @Bean
